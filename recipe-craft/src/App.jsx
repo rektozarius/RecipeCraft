@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router";
-import SearchPage from "./SearchPage";
+import HomePage from "./pages/HomePage";
 import './App.css';
-import Navbar from "./Navbar";
+import Navbar from "./components/Navbar";
+import FavoritesPage from "./pages/FavoritesPage";
 
 function App() {
 
@@ -9,7 +10,8 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<SearchPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>
     </>
   );
