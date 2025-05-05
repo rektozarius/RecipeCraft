@@ -1,7 +1,9 @@
 import { useState } from "react";
-import FavoriteButton from "./FavoriteButton";
+import { createPortal } from "react-dom";
+import Title from "./Title";
+import modalStyles from "./ModalStyles";
 
-const IngredientDetails = ({ ingredient }) => {
+const IngredientDetails = ({ ingredient, onClose }) => {
   const defaultMeasure = ingredient.measures[ingredient.measures.length -1];
 
   const [nutrients, setNutrients] = useState(ingredient.nutrient_facts);
@@ -17,50 +19,69 @@ const IngredientDetails = ({ ingredient }) => {
   };
 
   return (
-    <div>
-      <h1>{ingredient.food_name}</h1>
-      <img
-        src={ingredient.photo.highres}
-        alt={ingredient.food_name}
-      />
-      <FavoriteButton ingredientId={ingredient.ndb_no}/>
+    <>
+    {createPortal(
+    <div style={modalStyles.overlay}>
+      <div style={modalStyles.content} onClick={(e) => e.stopPropagation()}>
+        <button style={modalStyles.closeButton} onClick={onClose}>
+          &times;
+        </button>
+        <div style={{ gridArea: "title" }}>
+          <Title name={ingredient.food_name} />
+        </div>
 
-      <div>
-        <label>Amount</label>
-        <input
-          type="number"
-          value={amount}
-          onChange={(e) => {
-            setAmount(Number(e.target.value));
-            nutrientHandler(undefined, Number(e.target.value));
-          }}
-        />
-
-        <label>Measure</label>
-        <select
-          value={JSON.stringify(selectedMeasure)}
-          onChange={(e) => {
-            setSelectedMeasure(JSON.parse(e.target.value));
-            nutrientHandler(JSON.parse(e.target.value), undefined);
-          }}
-        >
-          {ingredient.measures.map((m, index) => (
-            <option key={index} value={JSON.stringify(m)}>
-              {m.qty} {m.measure} ({m.serving_weight}g)
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div>
-        {nutrients.map((n, index) => (
-          <div key={index}>
-            <p>{n.label}</p>
-            <p>{n.value} {n.unit}</p>
+        {/* <div> */}
+          <div style={{ gridArea: "image" }}>
+            <img 
+              src={ingredient.photo.highres} 
+              alt={ingredient.food_name} 
+              style={{ width: "100%", objectFit: "contain", borderRadius: "6px" }}/>
           </div>
-        ))}
+
+          <div style={{ gridArea: "amount" }}>
+          <label>Amount</label>
+          <input
+            type="number"
+            style={{ width: "100%" }}
+            value={amount}
+            onChange={(e) => {
+              setAmount(Number(e.target.value));
+              nutrientHandler(undefined, Number(e.target.value));
+            }}
+          />
+          </div>
+          <div style={{ gridArea: "measure" }}>
+          <label>Measure</label>
+          <select
+            style={{ width: "100%" }}
+            value={JSON.stringify(selectedMeasure)}
+            onChange={(e) => {
+              const newMeasure = JSON.parse(e.target.value);
+              setSelectedMeasure(newMeasure);
+              nutrientHandler(newMeasure, undefined);
+            }}
+          >
+            {ingredient.measures.map((m, index) => (
+              <option key={index} value={JSON.stringify(m)}>
+                {m.qty} {m.measure} ({m.serving_weight}g)
+              </option>
+            ))}
+          </select>
+          </div>
+        {/* </div> */}
+
+        <div style={{ gridArea: "nutrients" }}>
+          {nutrients.map((n, index) => (
+            <div key={index} style={{ display: "flex"}}>
+              <p>{n.label}: {n.value.toFixed(2)} {n.unit}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </div>,
+    document.body
+  )}
+  </>
   );
 };
 

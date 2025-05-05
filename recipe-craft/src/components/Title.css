@@ -1,0 +1,19 @@
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-items: center;
+}
+
+.title-container--title {
+  color: #ffffff;
+  margin: 0;
+}
+
+.title-container--favorite {
+  align-items: center;
+  width: 36px;
+  height: 36px;
+}

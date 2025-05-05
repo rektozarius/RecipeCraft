@@ -16,9 +16,8 @@ const FavoriteButton = ({ ingredientId }) => {
   };
 
   return (
-    <div className="product-image--favorite-container" onClick={favoriteToggle}>
+    <div className="title-container--favorite" onClick={favoriteToggle}>
       <img 
-        className="product-image--favorite" 
         src={isFavorite(ingredientId) ? solidHeart : regularHeart} 
       />
     </div>

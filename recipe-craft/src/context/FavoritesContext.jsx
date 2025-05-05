@@ -2,7 +2,6 @@ import { createContext, useState } from "react";
 
 const FavoritesContext = createContext();
 
-// Context provider with add, delete, check functionality
 const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
 

@@ -9,7 +9,10 @@ function HomePage() {
     <>
       <SearchBar onSearch={setIngredientData} />
       {ingredientData && (
-        <IngredientDetails ingredient={ingredientData} />
+        <IngredientDetails 
+        ingredient={ingredientData}
+        onClose={() => setIngredientData(null)}
+        />
       )}
     </>
   );
