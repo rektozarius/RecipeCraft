@@ -1,21 +1,6 @@
-function handleData(response) {
+function transformData(response) {
   let data = response.foods[0];
-  const cacheKey = data.ndb_no.toString();
-  const cacheValue = localStorage.getItem(cacheKey);
-  
-  if (cacheValue) {
-    console.log("cache returned") //////////////////
-    const ingredient = JSON.parse(cacheValue);
-    return ingredient;
-  };
 
-  const ingredient = transformData(data);
-  cacheIngredient(ingredient);
-  console.log("fetch returned") /////////////////////
-  return ingredient;
-};
-
-function transformData(data) {
   const nutrientFacts = [
     { label: "Calories", value: data.nf_calories, unit: "kcal" },
     { label: "Total Fat", value: data.nf_total_fat, unit: "g" },
@@ -46,9 +31,4 @@ function transformData(data) {
   };
 };
 
-function cacheIngredient(ingredient) {
-  const cacheValue = JSON.stringify(ingredient);
-  localStorage.setItem(`${ingredient.ndb_no}`, cacheValue);
-};
-
-export default handleData;
+export default transformData;

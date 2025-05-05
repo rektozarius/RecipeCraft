@@ -1,16 +1,29 @@
 import { useState } from "react";
-import useFetch from "../hooks/useFetch";
+import { getCached, setCached } from "../utils/cacheData";
+import fetchData from "../utils/fetchData";
+import transformData from "../utils/transformData";
 
 function SearchBar({ onSearch }) {
   const [query, setQuery] = useState("");
 
-  const data = useFetch(query);
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSearch(data);
-  };
+    const cachedIngredient = getCached(query);
+    if (cachedIngredient) {
+      onSearch(cachedIngredient);
+      return;
+    };
 
+    try {
+      const response = fetchData(query);
+      const ingredient = transformData(response);
+      console.log(ingredient) //////////////////
+      setCached(query, ingredient);
+      onSearch(ingredient);
+    } catch (error) {
+      console.log(error);
+    };
+  };
 
   return (
     <div>
