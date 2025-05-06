@@ -3,14 +3,17 @@ import HomePage from "./pages/HomePage";
 import './App.css';
 import Navbar from "./components/Navbar";
 import FavoritesPage from "./pages/FavoritesPage";
+import CraftRecipePage from "./pages/CraftRecipePage";
+import RecipesPage from "./pages/RecipesPage";
 
 function App() {
 
   return (
     <>
-      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/craft" element={<CraftRecipePage />} />
+        <Route path="/recipes" element={<RecipesPage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>
     </>

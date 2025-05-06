@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import Title from "./Title";
 import modalStyles from "./ModalStyles";
 
-const IngredientDetails = ({ ingredient, onClose }) => {
+const IngredientDetails = ({ ingredient, onClose, isRecipe}) => {
   const defaultMeasure = ingredient.measures[ingredient.measures.length -1];
 
   const [nutrients, setNutrients] = useState(ingredient.nutrient_facts);
@@ -23,14 +23,16 @@ const IngredientDetails = ({ ingredient, onClose }) => {
     {createPortal(
     <div style={modalStyles.overlay}>
       <div style={modalStyles.content} onClick={(e) => e.stopPropagation()}>
-        <button style={modalStyles.closeButton} onClick={onClose}>
-          &times;
+        <button style={modalStyles.closeButton} onClick={() => onClose()}>
+          Close
         </button>
+        {isRecipe && (<button style={modalStyles.addButton} onClick={() => onClose(nutrients, amount, selectedMeasure)}>
+          Add
+        </button>)}
         <div style={{ gridArea: "title" }}>
           <Title name={ingredient.food_name} />
         </div>
 
-        {/* <div> */}
           <div style={{ gridArea: "image" }}>
             <img 
               src={ingredient.photo.highres} 
@@ -68,7 +70,6 @@ const IngredientDetails = ({ ingredient, onClose }) => {
             ))}
           </select>
           </div>
-        {/* </div> */}
 
         <div style={{ gridArea: "nutrients" }}>
           {nutrients.map((n, index) => (

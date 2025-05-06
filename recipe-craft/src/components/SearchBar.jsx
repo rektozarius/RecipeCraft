@@ -17,7 +17,6 @@ function SearchBar({ onSearch }) {
     try {
       const response = fetchData(query);
       const ingredient = transformData(response);
-      console.log(ingredient) //////////////////
       setCached(query, ingredient);
       onSearch(ingredient);
     } catch (error) {
@@ -34,6 +33,7 @@ function SearchBar({ onSearch }) {
         placeholder="Find ingredients..."
         value={query}
         onChange={(e) => {setQuery(e.target.value)}}
+        required
       />
       <button
         type="submit"

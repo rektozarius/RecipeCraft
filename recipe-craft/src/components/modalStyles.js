@@ -29,7 +29,16 @@ const modalStyles = {
     position: "absolute",
     top: "10px",
     right: "10px",
-    background: "transparent",
+    background: "darkred",
+    border: "none",
+    fontSize: "1.5rem",
+    cursor: "pointer"
+  },
+  addButton: {
+    position: "absolute",
+    top: "10px",
+    left: "10px",
+    background: "darkgreen",
     border: "none",
     fontSize: "1.5rem",
     cursor: "pointer"
