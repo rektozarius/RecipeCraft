@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+// Custom hook that calculates total nutrient values
+// Provides functionality to CraftRecipePage and RecipePage
 function useNutrients(ingredients) {
   const [nutrients, setNutrients] = useState([]);
 

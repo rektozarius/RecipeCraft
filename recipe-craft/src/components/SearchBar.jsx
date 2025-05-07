@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { getCached, setCached } from "../utils/cacheData";
 import transformData from "../utils/transformData";
-import axios, {isCancel, AxiosError} from 'axios';
+import axios from "axios";
 
-const APP_ID = import.meta.env.VITE_APP_APP_ID;
-const APP_KEY = import.meta.env.VITE_APP_APP_KEY;
-
+// Searchbar component implemented in HomePage and CraftRecipesPage
 function SearchBar({ onSearch, setError, setLoading }) {
   const [query, setQuery] = useState("");
-
+  
+  // Fetches ingredient data from api and sets error or loading states
+  // Returns cached ingredient if exists || returns fetched ingredient
   const handleSubmit = async (e) => {
     e.preventDefault();
     const cachedIngredient = getCached(query);

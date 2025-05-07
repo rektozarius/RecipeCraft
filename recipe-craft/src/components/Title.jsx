@@ -1,6 +1,7 @@
 import FavoriteButton from "./FavoriteButton";
 import "./Title.css";
 
+// Title component for ingredient modal
 function Title({ name }) {
   return (
     <>

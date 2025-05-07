@@ -1,6 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { setCached } from "../utils/cacheData";
 
+// Context that caches and sets recipe names
+// Supplies MyRecipesPage with recipes
 const RecipesContext = createContext();
 
 const RecipesProvider = ({ children }) => {

@@ -1,14 +1,15 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router";
 import SearchBar from "../components/SearchBar";
 import Ingredient from "../modals/Ingredient";
 import Favorites from "../components/Favorites";
+import ErrorLoadingModal from "../modals/ErrorLoading";
 import { RecipesContext } from "../context/RecipesContext";
 import useNutrients from "../hooks/useNutrients";
-import { useNavigate } from 'react-router';
-import ErrorLoadingModal from "../modals/ErrorLoading";
-import "./CraftRecipePage.css";
 import { setCached } from "../utils/cacheData";
+import "./CraftRecipePage.css";
 
+// Display craft recipe page
 function CraftRecipePage() {
   const { addRecipe, isRecipe } = useContext(RecipesContext);
 
@@ -22,7 +23,9 @@ function CraftRecipePage() {
   const nutrients = useNutrients(ingredients);
   const navigate = useNavigate();
 
-
+  // handles create recipe form submit
+  // checks for name errors
+  // caches recipe and redirects to recipe page
   const handleRecipe = (e) => {
     e.preventDefault();
     const name = `${title.trim().replace(" ", "_")}`;
@@ -46,6 +49,7 @@ function CraftRecipePage() {
     navigate(`/myrecipes/${name}`);
   };
 
+  // Sets ingredient to array when add button is clicked inside ingredient modal
   const handleIngredients = (n, a, m) => {
     if (n) {
       const nextIngredient = {

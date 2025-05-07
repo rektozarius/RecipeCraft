@@ -1,12 +1,13 @@
 import { useContext } from "react";
-import { RecipesContext } from "../context/RecipesContext";
-import "./MyRecipesPage.css"
 import { useNavigate } from "react-router";
+import { RecipesContext } from "../context/RecipesContext";
 import { getCached } from "../utils/cacheData";
+import "./MyRecipesPage.css"
 
+// Display a list of created recipes
 function MyRecipesPage() {
   const { recipes, deleteRecipe } = useContext(RecipesContext);
-
+  
   const myRecipes = recipes.map((name) => 
     (getCached(name))
   );

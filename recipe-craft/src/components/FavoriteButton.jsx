@@ -3,6 +3,7 @@ import { FavoritesContext } from "../context/FavoritesContext";
 import regularHeart from "../assets/heart-regular.svg";
 import solidHeart from "../assets/heart-solid.svg";
 
+// Adds or removes favorited state from an ingredient
 const FavoriteButton = ({ name }) => {
   const { addFavorite, deleteFavorite, isFavorite } = useContext(FavoritesContext);
 

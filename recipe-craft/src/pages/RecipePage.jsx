@@ -1,16 +1,18 @@
 import { useParams } from "react-router";
-import useNutrients from "../hooks/useNutrients";
-import "./RecipePage.css"
 import { useMemo } from "react";
+import useNutrients from "../hooks/useNutrients";
 import { getCached } from "../utils/cacheData";
+import "./RecipePage.css"
 
+// Displays recipe details
 function RecipePage() {
   const { name } = useParams();
+  // saves cached recipe to prevent useNutrients infinite re-renders
   const recipe = useMemo(() => 
     getCached(name)
   , []);
   const nutrients = useNutrients(recipe.ingredients);
-  const description = recipe.description.split('\n');
+  const description = recipe.description.split("\n");
 
   return (
     <>

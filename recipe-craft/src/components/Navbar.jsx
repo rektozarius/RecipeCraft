@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 
+// Display static links to pages
 function Navbar() {
   return (
     <nav className="navbar">

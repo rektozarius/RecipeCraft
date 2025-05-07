@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router";
 import SearchBar from "../components/SearchBar";
 import Ingredient from "../modals/Ingredient";
-import { Link } from "react-router";
-import "./HomePage.css"
 import ErrorLoadingModal from "../modals/ErrorLoading";
+import "./HomePage.css"
 
+// Displays home page
 function HomePage() {
   const [ingredient, setIngredient] = useState(null);
   const [loading, setLoading] = useState(false);

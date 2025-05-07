@@ -1,6 +1,7 @@
 import { createPortal } from "react-dom";
 import styles from "./errorLoadingStyles"
 
+// Displays modal for error or loading states
 function ErrorLoading({ error, onClose }) {
   return (
     <>

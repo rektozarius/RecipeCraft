@@ -1,6 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 import { setCached } from "../utils/cacheData";
 
+// Context that sets and caches favorite ingredient names
+// Ensures favorite button functionality
+// Supplies FavoritesPage with ingredients
 const FavoritesContext = createContext();
 
 const FavoritesProvider = ({ children }) => {

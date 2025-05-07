@@ -3,6 +3,7 @@ import { FavoritesContext } from "../context/FavoritesContext";
 import "./Favorites.css"
 import { getCached } from "../utils/cacheData";
 
+// Favorite ingredients list for use with FavoritesPage and CraftRecipePage
 function Favorites({ onClick }) {
   const { favorites } = useContext(FavoritesContext);
 

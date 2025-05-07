@@ -2,6 +2,7 @@ import { useState } from "react";
 import Favorites from "../components/Favorites";
 import Ingredient from "../modals/Ingredient";
 
+// Displays favorited ingredients list with ingredient details
 function FavoritesPage() {
   const [ingredient, setIngredient] = useState(null);
 
