@@ -34,7 +34,7 @@ const modalStyles = {
     position: 'absolute',
     top: '10px',
     right: '10px',
-    background: 'rgba(113, 50, 50, 0.95)',
+    background: 'rgba(168, 53, 53, 0.95)',
     border: 'none',
     fontSize: '1.5rem',
     cursor: 'pointer',

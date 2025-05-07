@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
-import Title from "./Title";
-import modalStyles from "./ModalStyles";
+import Title from "../components/Title";
+import modalStyles from "./ingredientStyles";
 
-const IngredientDetails = ({ ingredient, onClose, isRecipe}) => {
+function Ingredient({ ingredient, onClose, isRecipe}) {
   const defaultMeasure = ingredient.measures[ingredient.measures.length -1];
 
   const [nutrients, setNutrients] = useState(ingredient.nutrient_facts);
@@ -111,4 +111,4 @@ const IngredientDetails = ({ ingredient, onClose, isRecipe}) => {
   );
 };
 
-export default IngredientDetails;
+export default Ingredient;

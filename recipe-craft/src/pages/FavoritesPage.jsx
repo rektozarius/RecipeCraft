@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Favorites from "../components/Favorites";
-import IngredientDetails from "../components/IngredientDetails";
+import Ingredient from "../modals/Ingredient";
 
 function FavoritesPage() {
   const [ingredient, setIngredient] = useState(null);
@@ -10,7 +10,7 @@ function FavoritesPage() {
       <div className="favorites-page">
         <Favorites onClick={setIngredient}/>
         {ingredient && (
-          <IngredientDetails 
+          <Ingredient 
           ingredient={ingredient}
           onClose={() => (setIngredient(null))}
           isRecipe={false}

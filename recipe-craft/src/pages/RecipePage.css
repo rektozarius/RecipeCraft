@@ -14,13 +14,20 @@
 }
 
 .recipe-info h2 {
+  text-align: center;
+  color: rgb(33, 52, 70);
   font-size: 2rem;
   margin-bottom: 1rem;
   text-transform: capitalize;
 }
 
+.recipe-description {
+  background-color: #f0f1f5;
+  border-radius: 6px;
+}
+
 .recipe-description p {
-  margin: 0.5rem 0;
+  margin: 0.5rem;
   line-height: 1.5;
 }
 
@@ -30,11 +37,12 @@
   margin-bottom: 1rem;
   text-align: center;
   font-size: 1.1rem;
+  color: rgb(33, 52, 70);
 }
 
 .nutrient p {
   margin: 0.25rem 0;
-  background-color: #f4f4f4;
+  background-color: #f0f1f5;
   padding: 0.5rem 0.75rem;
   border-radius: 6px;
   font-size: 0.95rem;
@@ -43,7 +51,7 @@
 .recipe-ingredients {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
 }
 
 .recipe-ingredients label {
@@ -51,6 +59,7 @@
   margin-bottom: 1rem;
   text-align: center;
   font-size: 1.1rem;
+  color: rgb(33, 52, 70);
 }
 
 .recipe-ingredients--ingredient-pill {

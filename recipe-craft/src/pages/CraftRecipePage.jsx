@@ -1,15 +1,18 @@
 import { useContext, useState } from "react";
 import SearchBar from "../components/SearchBar";
-import IngredientDetails from "../components/IngredientDetails";
+import Ingredient from "../modals/Ingredient";
 import Favorites from "../components/Favorites";
 import { RecipesContext } from "../context/RecipesContext";
 import useNutrients from "../hooks/useNutrients";
 import { useNavigate } from 'react-router';
+import ErrorLoadingModal from "../modals/ErrorLoading";
 import "./CraftRecipePage.css";
 
 function CraftRecipePage() {
   const { addRecipe } = useContext(RecipesContext);
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [ingredient, setIngredient] = useState(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -90,9 +93,9 @@ function CraftRecipePage() {
         </main>
   
         <aside className="craft-recipe--ingredients-container">
-          <SearchBar onSearch={setIngredient} />
+          <SearchBar onSearch={setIngredient} setError={setError} setLoading={setLoading}/>
           {ingredient && (
-            <IngredientDetails 
+            <Ingredient 
             ingredient={ingredient}
             onClose={handleIngredients}
             isRecipe={true}
@@ -113,7 +116,9 @@ function CraftRecipePage() {
             ))}
           </div>
         </aside>
-      </div>         
+      </div>
+      {error && <ErrorLoadingModal error={error} onClose={() => setError(null)}/>}
+      {loading && <ErrorLoadingModal />}         
     </>
   );
 };
