@@ -13,7 +13,7 @@ To run this project locally:
 
 - Create a .env file in the project root folder and add the required APP_ID, APP_KEY.
 
-- Start the development server by running: ```npm run dev```.
+- Start the development server by running: ```npm install``` then ```npm run dev```.
 
 ## Project Tree
 
