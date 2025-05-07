@@ -53,7 +53,6 @@
   background-color: rgba(0, 53, 106, 0.75);
 }
 
-/* Responsive tweaks */
 @media (max-width: 500px) {
   .search-bar input,
   .search-bar button {
