@@ -9,7 +9,7 @@ import ErrorLoadingModal from "../modals/ErrorLoading";
 import "./CraftRecipePage.css";
 
 function CraftRecipePage() {
-  const { addRecipe } = useContext(RecipesContext);
+  const { addRecipe, isRecipe } = useContext(RecipesContext);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -22,8 +22,17 @@ function CraftRecipePage() {
   const navigate = useNavigate();
 
 
-  const handleRecipe = () => {
+  const handleRecipe = (e) => {
+    e.preventDefault();
     const name = `${title.trim().replace(" ", "_")}`;
+    if (isRecipe(name)) {
+      setError({
+        code: "Recipe Error",
+        message: "Recipe already exists!",
+        response: {data:{message: "Try another name"}}
+      });
+      return;
+    };
     const newRecipe = {
       name: name,
       title: title,
@@ -59,7 +68,7 @@ function CraftRecipePage() {
         </aside>
   
         <main className="craft-recipe--main">
-          <form className="craft-recipe--form">
+          <form onSubmit={(e) => handleRecipe(e)} className="craft-recipe--form">
             <h2>Craft a New Recipe</h2>
   
             <label>Title</label>
@@ -77,7 +86,7 @@ function CraftRecipePage() {
               required
             />
             
-            <button onClick={handleRecipe} type="submit">Create Recipe</button>
+            <button type="submit">Create Recipe</button>
           </form>
   
           <section className="craft-recipe--nutrients">

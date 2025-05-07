@@ -7,11 +7,11 @@ function ErrorLoading({ error, onClose }) {
     {createPortal(
       <div style={styles.overlay}>
         <div style={styles.content}>
-          {error ? (
+          {error ? ( 
             <>
             <p>{error.code}</p>
-            <p>{error.message}</p>
             <p>{error.response.data.message}</p>
+            <p>{error.message}</p>
             <button style={{
               color: "#f2f2f2", backgroundColor: "rgba(168, 53, 53, 0.95)", borderRadius: "4px", padding: "0.25rem 0.5rem", cursor: "pointer"
               }} onClick={onClose}>Close</button>

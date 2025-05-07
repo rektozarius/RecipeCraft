@@ -16,13 +16,15 @@ const RecipesProvider = ({ children }) => {
     setRecipes((names) => (names.filter((recipeName) => recipeName !== name)));
   };
 
+  const isRecipe = (name) => recipes.includes(name);
+
   useEffect(() => {
     localStorage.setItem("recipes", JSON.stringify(recipes))
   }, [recipes]);
 
   return (
     <RecipesContext.Provider
-      value={{ recipes, addRecipe, deleteRecipe}}
+      value={{ recipes, addRecipe, deleteRecipe, isRecipe}}
     >
       {children}
     </RecipesContext.Provider>
