@@ -8,7 +8,7 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-image: url(./assets/image.png);
+  background-image: url(./assets/background.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

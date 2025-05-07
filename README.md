@@ -1,25 +1,74 @@
 # RecipeCraft App
 
-RecipeCraft is a multi-page web app designed for health-conscious food enthusiasts to discover ingredients, design custom recipes, and track their nutritional values. Users can search for ingredients by leveraging the [Nutritionix API](https://docx.syndigo.com/developers/docs/nutritionix-api-guide), save favorite ingredients, and assemble step-by-step recipes with ingredient quantities and cooking instructions.
+RecipeCraft is a multi-page web app designed for health-conscious food enthusiasts to discover ingredients, design custom recipes, and track their nutritional values. Users can search for ingredients by leveraging the [Nutritionix API](https://docx.syndigo.com/developers/docs/nutritionix-api-guide), save favorite ingredients, and assemble recipes with cooking instructions and ingredient information.
 
 ## Design
 
 RecipeCraft mimics the color/brand palette of [Nutritionix](https://brandfetch.com/nutritionix.com).
 
-## Features
+## Usage
+To run this project locally:
 
-### High Priority
+- Navigate to the ./recipe-craft directory.
 
-- [ ] The app is a responsive multi-page application
-- [ ] The app grabs raw ingredient data via Nutritionix API based on user input
-- [ ] The app displays human readable errors to the user
-- [ ] The app displays loading state to the user
-- [ ] The user can search for an ingredient by its name
-- [ ] The app displays information and nutritional values for an ingredient on the ingredient details page
-- [ ] The user can save an ingredient to later view on the favorites page
+- Create a .env file in the project root folder and add the required APP_ID, APP_KEY.
 
-### Medium Priority
-- [ ] The user can create a custom recipes with instructions and ingredients
-- [ ] The app displays crafted recipes on the recipes page
-- [ ] The app displays total nutritional values for the selected recipe on the recipe details page
-- [ ] The user can add favorited ingredients to the recipe instead of searching for it via the API
+- Start the development server by running: ```npm run dev```.
+
+## Project Tree
+
+```bash
+¦   index.html            
++---src
+    ¦   App.jsx
+    ¦   index.css
+    ¦   main.jsx
+    ¦       
+    +---common
+    ¦       nutrientFacts.js
+    ¦       
+    +---components
+    ¦       FavoriteButton.jsx
+    ¦       Favorites.css
+    ¦       Favorites.jsx
+    ¦       Navbar.jsx
+    ¦       SearchBar.jsx
+    ¦       Title.css
+    ¦       Title.jsx
+    ¦       
+    +---context
+    ¦       FavoritesContext.jsx
+    ¦       RecipesContext.jsx
+    ¦       
+    +---hooks
+    ¦       useNutrients.js
+    ¦       
+    +---modals
+    ¦       ErrorLoading.jsx
+    ¦       errorLoadingStyles.js
+    ¦       Ingredient.jsx
+    ¦       ingredientStyles.js
+    ¦       
+    +---pages
+    ¦       CraftRecipePage.css
+    ¦       CraftRecipePage.jsx
+    ¦       FavoritesPage.jsx
+    ¦       HomePage.css
+    ¦       HomePage.jsx
+    ¦       MyRecipesPage.css
+    ¦       MyRecipesPage.jsx
+    ¦       RecipePage.css
+    ¦       RecipePage.jsx
+    ¦       
+    +---utils
+            cacheData.js
+            transformData.js
+```
+
+## Screenshots
+
+![Screenshot](./recipe-craft/public/home.png?raw=true "Home Page")
+
+![Screenshot](./recipe-craft/public/craft_recipe.png?raw=true "Craft Recipe Page")
+
+![Screenshot](./recipe-craft/public/ingredient.png?raw=true "Ingredient Modal")

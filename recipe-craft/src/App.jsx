@@ -6,7 +6,6 @@ import MyRecipesPage from "./pages/MyRecipesPage";
 import RecipePage from "./pages/RecipePage";
 
 function App() {
-
   return (
     <>
       <Routes>
