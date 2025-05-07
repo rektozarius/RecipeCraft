@@ -18,7 +18,7 @@ function Favorites({ onClick }) {
           {ingredients.map((i) => (  
             <li key={i.ndb_no} onClick={() => {onClick(i)}}>
               <div>
-                <img src={i.photo.thumb} alt={i.food_name} />
+                <img src={i.photo.highres} alt={i.food_name} />
               	<p>
 		    					{i.food_name.charAt(0).toUpperCase() + i.food_name.slice(1)}
 		    				</p>

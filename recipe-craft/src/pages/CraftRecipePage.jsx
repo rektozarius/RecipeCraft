@@ -6,7 +6,7 @@ import Favorites from "../components/Favorites";
 import ErrorLoadingModal from "../modals/ErrorLoading";
 import { RecipesContext } from "../context/RecipesContext";
 import useNutrients from "../hooks/useNutrients";
-import { setCached } from "../utils/cacheData";
+import { getCached, setCached } from "../utils/cacheData";
 import "./CraftRecipePage.css";
 
 // Display craft recipe page
@@ -33,6 +33,13 @@ function CraftRecipePage() {
       setError({
         code: "Recipe Error",
         message: "Recipe already exists!",
+        response: {data:{message: "Try another name"}}
+      });
+      return;
+    } else if (getCached(name)) {
+      setError({
+        code: "Recipe Error",
+        message: "You cannot enter an ingredient as the recipe name!",
         response: {data:{message: "Try another name"}}
       });
       return;
