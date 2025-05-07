@@ -2,11 +2,12 @@ import { useParams } from "react-router";
 import useNutrients from "../hooks/useNutrients";
 import "./RecipePage.css"
 import { useMemo } from "react";
+import { getCached } from "../utils/cacheData";
 
 function RecipePage() {
   const { name } = useParams();
   const recipe = useMemo(() => 
-    JSON.parse(localStorage.getItem(name))
+    getCached(name)
   , []);
   const nutrients = useNutrients(recipe.ingredients);
   const description = recipe.description.split('\n');

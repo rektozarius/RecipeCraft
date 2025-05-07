@@ -2,12 +2,13 @@ import { useContext } from "react";
 import { RecipesContext } from "../context/RecipesContext";
 import "./MyRecipesPage.css"
 import { useNavigate } from "react-router";
+import { getCached } from "../utils/cacheData";
 
 function MyRecipesPage() {
   const { recipes, deleteRecipe } = useContext(RecipesContext);
 
   const myRecipes = recipes.map((name) => 
-    (JSON.parse(localStorage.getItem(name)))
+    (getCached(name))
   );
 
   const navigate = useNavigate();

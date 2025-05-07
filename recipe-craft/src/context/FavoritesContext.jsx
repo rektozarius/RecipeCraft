@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { setCached } from "../utils/cacheData";
 
 const FavoritesContext = createContext();
 
@@ -19,7 +20,7 @@ const FavoritesProvider = ({ children }) => {
   const isFavorite = (name) => favorites.includes(name);
 
   useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites))
+    setCached("favorites", favorites)
   }, [favorites]);
 
   return (

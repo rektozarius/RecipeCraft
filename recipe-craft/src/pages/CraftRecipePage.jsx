@@ -7,6 +7,7 @@ import useNutrients from "../hooks/useNutrients";
 import { useNavigate } from 'react-router';
 import ErrorLoadingModal from "../modals/ErrorLoading";
 import "./CraftRecipePage.css";
+import { setCached } from "../utils/cacheData";
 
 function CraftRecipePage() {
   const { addRecipe, isRecipe } = useContext(RecipesContext);
@@ -40,7 +41,7 @@ function CraftRecipePage() {
       ingredients: ingredients,
     };
 
-    localStorage.setItem(name, JSON.stringify(newRecipe));
+    setCached(name, newRecipe);
     addRecipe(name);
     navigate(`/myrecipes/${name}`);
   };

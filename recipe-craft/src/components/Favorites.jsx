@@ -1,12 +1,13 @@
 import { useContext} from "react";
 import { FavoritesContext } from "../context/FavoritesContext";
 import "./Favorites.css"
+import { getCached } from "../utils/cacheData";
 
 function Favorites({ onClick }) {
   const { favorites } = useContext(FavoritesContext);
 
   const ingredients = favorites.map((name) => 
-    (JSON.parse(localStorage.getItem(name)))
+    (getCached(name))
   );
 
   return (

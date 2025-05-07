@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { setCached } from "../utils/cacheData";
 
 const RecipesContext = createContext();
 
@@ -19,7 +20,7 @@ const RecipesProvider = ({ children }) => {
   const isRecipe = (name) => recipes.includes(name);
 
   useEffect(() => {
-    localStorage.setItem("recipes", JSON.stringify(recipes))
+    setCached("recipes", recipes)
   }, [recipes]);
 
   return (
