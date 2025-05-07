@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url(./assets/image.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1.5rem 1rem;
+  background-color: rgb(50, 113, 52);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-link {
+  font-size: clamp(1.5rem, 1.5vw, 2rem);
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.navbar-link:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+h1, h2 {
+  font-weight: 700;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  letter-spacing: -0.5px;
+  color: #444;
+}
+
+p, label {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+img {
+  border: 2px solid #ddd;
+  border-color: rgb(76, 175, 80);
+}
+
+input, select, textarea {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  background: #fdfdfd;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: rgb(76, 175, 80);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3);
+  outline: none;
+}
+
+input::placeholder {
+  text-align: center;
+  color: #aaa;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}

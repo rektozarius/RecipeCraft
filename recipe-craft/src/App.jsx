@@ -1,10 +1,9 @@
 import { Routes, Route } from "react-router";
 import HomePage from "./pages/HomePage";
-import './App.css';
-import Navbar from "./components/Navbar";
 import FavoritesPage from "./pages/FavoritesPage";
 import CraftRecipePage from "./pages/CraftRecipePage";
-import RecipesPage from "./pages/RecipesPage";
+import MyRecipesPage from "./pages/MyRecipesPage";
+import RecipePage from "./pages/RecipePage";
 
 function App() {
 
@@ -13,8 +12,9 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/craft" element={<CraftRecipePage />} />
-        <Route path="/recipes" element={<RecipesPage />} />
+        <Route path="/myrecipes" element={<MyRecipesPage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/myrecipes/:name" element={<RecipePage />} />
       </Routes>
     </>
   );

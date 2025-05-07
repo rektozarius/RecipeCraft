@@ -5,13 +5,16 @@ import './index.css';
 import App from './App.jsx';
 import { FavoritesProvider } from './context/FavoritesContext.jsx';
 import Navbar from './components/Navbar.jsx';
+import { RecipesProvider } from './context/RecipesContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <FavoritesProvider>
-        <Navbar />
-        <App />
+        <RecipesProvider>
+          <Navbar />
+          <App />
+        </RecipesProvider>
       </FavoritesProvider>
     </BrowserRouter>
   </StrictMode>,

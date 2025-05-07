@@ -3,22 +3,22 @@ import { FavoritesContext } from "../context/FavoritesContext";
 import regularHeart from "../assets/heart-regular.svg";
 import solidHeart from "../assets/heart-solid.svg";
 
-const FavoriteButton = ({ ingredientId }) => {
+const FavoriteButton = ({ name }) => {
   const { addFavorite, deleteFavorite, isFavorite } = useContext(FavoritesContext);
 
   const favoriteToggle = (e) => {
     e.preventDefault();
-    if (isFavorite(ingredientId)) {
-      deleteFavorite(ingredientId);
+    if (isFavorite(name)) {
+      deleteFavorite(name);
     } else {
-      addFavorite(ingredientId);
+      addFavorite(name);
     }
   };
 
   return (
     <div className="title-container--favorite" onClick={favoriteToggle}>
       <img 
-        src={isFavorite(ingredientId) ? solidHeart : regularHeart} 
+        src={isFavorite(name) ? solidHeart : regularHeart} 
       />
     </div>
   );

@@ -1,0 +1,160 @@
+.craft-recipe {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.craft-recipe h2 {
+  text-align: center;
+  color: rgb(0, 69, 2);
+  padding: 2px;
+}
+
+.craft-recipe label {
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+  color: rgb(0, 53, 106);
+}
+
+.craft-recipe--favorites,
+.craft-recipe--ingredients-container {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.craft-recipe--favorites {
+  text-align: center;
+}
+
+.craft-recipe--favorites .favorites-container ul{
+  padding: 0;
+}
+
+.craft-recipe--form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.craft-recipe--form input,
+.craft-recipe--form textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+.craft-recipe--form textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.craft-recipe button {
+  padding: 0.75rem;
+  background-color: rgb(0, 69, 2);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.craft-recipe button:hover {
+  background-color: rgb(0, 69, 2, 0.75);
+}
+
+.craft-recipe--nutrients {
+  margin-top: 2rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.craft-recipe--nutrients div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px solid #eee;
+  padding: 0.3rem 0;
+}
+
+.craft-recipe--ingredients-container .search-bar {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.craft-recipe--ingredients-container .search-bar input {
+  flex: 1;
+  padding: 0.5rem;
+  margin-bottom: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.craft-recipe--ingredients-container {
+  padding: 1rem;
+}
+
+.craft-recipe--ingredients {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.ingredient-pill {
+  display: flex;
+  align-items: center;
+  background-color: #f0f4f8;
+  border-radius: 9999px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.95rem;
+  color: #333;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ingredient-pill button {
+  background-color: rgb(255, 102, 102);
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ingredient-pill button:hover {
+  background-color: rgb(204, 77, 77);
+  transform: none;
+}
+
+.ingredient-pill span {
+  white-space: nowrap;
+}
+
+@media (max-width: 960px) {
+  .craft-recipe--grid {
+    grid-template-columns: 1fr;
+  }
+
+  .craft-recipe--form,
+  .craft-recipe--nutrients,
+  .craft-recipe--favorites,
+  .craft-recipe--ingredients-pane {
+    margin-bottom: 2rem;
+  }
+}

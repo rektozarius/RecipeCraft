@@ -7,14 +7,16 @@ function FavoritesPage() {
 
   return (
     <>
-      <Favorites onClick={setIngredient}/>
-      {ingredient && (
-        <IngredientDetails 
-        ingredient={ingredient}
-        onClose={() => (setIngredient(null))}
-        isRecipe={false}
-        />
-      )}
+      <div className="favorites-page">
+        <Favorites onClick={setIngredient}/>
+        {ingredient && (
+          <IngredientDetails 
+          ingredient={ingredient}
+          onClose={() => (setIngredient(null))}
+          isRecipe={false}
+          />
+        )}
+      </div>
     </>
   );
 };

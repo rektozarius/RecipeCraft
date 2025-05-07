@@ -25,8 +25,8 @@ function SearchBar({ onSearch }) {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <>
+      <form onSubmit={handleSubmit} className="search-bar">
       <input
         id="0123" // should have id or name attr
         type="text"
@@ -41,7 +41,7 @@ function SearchBar({ onSearch }) {
         Search
       </button>
     </form>    
-  </div>
+  </>
   );
 };
 

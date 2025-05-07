@@ -1,24 +1,25 @@
 import { useContext} from "react";
 import { FavoritesContext } from "../context/FavoritesContext";
+import "./Favorites.css"
 
 function Favorites({ onClick }) {
   const { favorites } = useContext(FavoritesContext);
 
-  const ingredients = favorites.map((id) => 
-    (JSON.parse(localStorage.getItem(id)))
+  const ingredients = favorites.map((name) => 
+    (JSON.parse(localStorage.getItem(name)))
   );
 
   return (
     <>
-      <div>
+      <div className="favorites-container">
         <ul>
           {ingredients.map((i) => (  
             <li key={i.ndb_no} onClick={() => {onClick(i)}}>
               <div>
                 <img src={i.photo.thumb} alt={i.food_name} />
-              	<span title={i.food_name}>
-		    					{i.food_name}
-		    				</span>
+              	<p>
+		    					{i.food_name.charAt(0).toUpperCase() + i.food_name.slice(1)}
+		    				</p>
 		    			</div>
             </li>
           ))}

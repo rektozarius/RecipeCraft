@@ -23,28 +23,42 @@ const IngredientDetails = ({ ingredient, onClose, isRecipe}) => {
     {createPortal(
     <div style={modalStyles.overlay}>
       <div style={modalStyles.content} onClick={(e) => e.stopPropagation()}>
+
         <button style={modalStyles.closeButton} onClick={() => onClose()}>
           Close
         </button>
         {isRecipe && (<button style={modalStyles.addButton} onClick={() => onClose(nutrients, amount, selectedMeasure)}>
           Add
         </button>)}
+
         <div style={{ gridArea: "title" }}>
           <Title name={ingredient.food_name} />
         </div>
 
-          <div style={{ gridArea: "image" }}>
-            <img 
-              src={ingredient.photo.highres} 
-              alt={ingredient.food_name} 
-              style={{ width: "100%", objectFit: "contain", borderRadius: "6px" }}/>
-          </div>
+        <div style={{ 
+            gridArea: "image", 
+            display: 'flex',
+            justifyContent: 'center', 
+            alignItems: 'center' }}>
+          <img 
+            src={ingredient.photo.highres} 
+            alt={ingredient.food_name} 
+            style={{ width: "100%", maxWidth: "200px", objectFit: "contain", borderRadius: "6px" }}/>
+        </div>
 
-          <div style={{ gridArea: "amount" }}>
+        <div style={{ 
+            gridArea: 'form', 
+            display: 'flex', 
+            flexDirection: 'column',
+            gap: '1rem', 
+            ustifyContent: 'center', 
+            alignItems: 'center'  
+          }}>
+          <div>
           <label>Amount</label>
           <input
             type="number"
-            style={{ width: "100%" }}
+            style={{ width: '100%', padding: '0.5rem' }}
             value={amount}
             onChange={(e) => {
               setAmount(Number(e.target.value));
@@ -52,10 +66,10 @@ const IngredientDetails = ({ ingredient, onClose, isRecipe}) => {
             }}
           />
           </div>
-          <div style={{ gridArea: "measure" }}>
+          <div>
           <label>Measure</label>
           <select
-            style={{ width: "100%" }}
+            style={{ width: '100%', padding: '0.5rem' }}
             value={JSON.stringify(selectedMeasure)}
             onChange={(e) => {
               const newMeasure = JSON.parse(e.target.value);
@@ -70,14 +84,25 @@ const IngredientDetails = ({ ingredient, onClose, isRecipe}) => {
             ))}
           </select>
           </div>
+        </div>
 
-        <div style={{ gridArea: "nutrients" }}>
+        <div style={{
+          gridArea: 'nutrients',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: '1rem',
+          padding: '1rem',
+          borderRadius: '8px',
+          }}>
           {nutrients.map((n, index) => (
-            <div key={index} style={{ display: "flex"}}>
-              <p>{n.label}: {n.value.toFixed(2)} {n.unit}</p>
+            <div key={index} style={{ display: "flex", justifyContent: 'center', alignItems: 'center', background: 'rgba(76, 175, 79, 0.25)', padding: '0.5rem', borderRadius: '6px' }}>
+              <p style={{whiteSpace: "nowrap"}}>
+                <span style={{fontWeight: "bold"}}>{n.label}:</span> {n.value.toFixed(2)} {n.unit}
+              </p>
             </div>
           ))}
         </div>
+
       </div>
     </div>,
     document.body
