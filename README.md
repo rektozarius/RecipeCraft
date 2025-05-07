@@ -9,8 +9,6 @@ RecipeCraft mimics the color/brand palette of [Nutritionix](https://brandfetch.c
 ## Usage
 To run this project locally:
 
-- Navigate to the ./recipe-craft directory.
-
 - Create a .env file in the project root folder and add the required APP_ID, APP_KEY.
 
 - Start the development server by running: ```npm install``` then ```npm run dev```.
@@ -67,8 +65,8 @@ To run this project locally:
 
 ## Screenshots
 
-![Screenshot](./recipe-craft/public/home.png?raw=true "Home Page")
+![Screenshot](./public/home.png?raw=true "Home Page")
 
-![Screenshot](./recipe-craft/public/craft_recipe.png?raw=true "Craft Recipe Page")
+![Screenshot](./public/craft_recipe.png?raw=true "Craft Recipe Page")
 
-![Screenshot](./recipe-craft/public/ingredient.png?raw=true "Ingredient Modal")
+![Screenshot](./public/ingredient.png?raw=true "Ingredient Modal")
